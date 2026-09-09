@@ -1,4 +1,4 @@
-import sys
+﻿import sys
 from pathlib import Path
 
 import pytest
@@ -16,8 +16,8 @@ def clean_env(monkeypatch):
     for spec in PROVIDERS.values():
         if spec["env_key"]:
             monkeypatch.delenv(spec["env_key"], raising=False)
-    monkeypatch.delenv("SELLERSENSE_LLM_PROVIDER", raising=False)
-    monkeypatch.delenv("SELLERSENSE_LLM_MODEL", raising=False)
+    monkeypatch.delenv("AGENTIC_LLM_PROVIDER", raising=False)
+    monkeypatch.delenv("AGENTIC_LLM_MODEL", raising=False)
     monkeypatch.delenv("OLLAMA_BASE_URL", raising=False)
 
 
@@ -28,12 +28,12 @@ def _all_packages_present(monkeypatch):
 # ---------------------------------------------------------------- resolution
 
 def test_explicit_provider_wins(monkeypatch):
-    monkeypatch.setenv("SELLERSENSE_LLM_PROVIDER", "google")
+    monkeypatch.setenv("AGENTIC_LLM_PROVIDER", "google")
     assert resolve_provider("openai") == "openai"
 
 
 def test_env_var_is_used_when_no_explicit_choice(monkeypatch):
-    monkeypatch.setenv("SELLERSENSE_LLM_PROVIDER", "google")
+    monkeypatch.setenv("AGENTIC_LLM_PROVIDER", "google")
     assert resolve_provider() == "google"
 
 
@@ -43,7 +43,7 @@ def test_unknown_provider_is_rejected_rather_than_silently_defaulting():
 
 
 def test_unknown_provider_in_env_is_rejected(monkeypatch):
-    monkeypatch.setenv("SELLERSENSE_LLM_PROVIDER", "typo-provider")
+    monkeypatch.setenv("AGENTIC_LLM_PROVIDER", "typo-provider")
     with pytest.raises(ValueError):
         resolve_provider()
 

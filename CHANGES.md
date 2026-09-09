@@ -1,4 +1,4 @@
-# Audit and fixes
+﻿# Audit and fixes
 
 An external review of this project found two correctness bugs, three
 methodological problems in the evidence, and a set of places where the
@@ -14,7 +14,7 @@ file is the summary; the reasoning lives in `PROJECT_REPORT.md` sections 3, 4, 7
 |---|---|---|---|
 | What the seller actually did | 220 | 0.668 | ₹52,010 |
 | Textbook reorder point | 338 | 0.567 | ₹18,640 |
-| SellerSense | 188 | 0.753 | ₹30,121 |
+| Agentic Inventory Management System | 188 | 0.753 | ₹30,121 |
 
 *"Beats the seller on all three measures at once."*
 
@@ -25,9 +25,9 @@ file is the summary; the reasoning lives in `PROJECT_REPORT.md` sections 3, 4, 7
 | Seller's own rule, closed-loop | **150** | **0.828** | ₹63,672 |
 | Recorded orders, replayed | 178 | 0.807 | ₹55,037 |
 | Textbook reorder point | 302 | 0.643 | **₹20,235** |
-| SellerSense | 171 | 0.802 | ₹30,837 |
+| Agentic Inventory Management System | 171 | 0.802 | ₹30,837 |
 
-*SellerSense reaches 97% of the seller's fill rate on 48% of the working capital,
+*Agentic Inventory Management System reaches 97% of the seller's fill rate on 48% of the working capital,
 and strictly beats a textbook reorder point on availability.*
 
 The old claim was an artefact, not a lie. Two defaults nobody re-examined —
@@ -36,8 +36,8 @@ The new claim is narrower and true, and it is arguably the better pitch: a shop
 owner's binding constraint is cash, and this frees ₹33,000 of it.
 
 **The Umbrella showcase is gone.** With an unbiased demand estimate the textbook
-policy now catches the monsoon ramp and beats SellerSense there (0.658 vs 0.468).
-Raincoat replaces it: 0.000 for the textbook policy, 0.295 for SellerSense, 0.216
+policy now catches the monsoon ramp and beats Agentic Inventory Management System there (0.658 vs 0.468).
+Raincoat replaces it: 0.000 for the textbook policy, 0.295 for Agentic Inventory Management System, 0.216
 for the seller.
 
 ## Correctness bugs

@@ -1,4 +1,4 @@
-"""
+﻿"""
 The dashboard. One Streamlit app tying the system together: an overview that
 frames the store's position, today's ranked recommendations from the graph,
 approve/reject that closes through the Feedback Agent, a chat panel, the
@@ -59,7 +59,7 @@ BACKTEST_PATH = DATA / "backtest_results.csv"
 STORE_NAME = "Meera General Store"
 STORE_SUBTITLE = "Single storefront · 25 SKUs · 5 suppliers"
 
-st.set_page_config(page_title="SellerSense", page_icon="📦", layout="wide")
+st.set_page_config(page_title="Agentic Inventory Management System", page_icon="📦", layout="wide")
 
 RISK_LABEL = {"stockout_risk": "At risk", "overstock": "Overstocked", "healthy": "Healthy"}
 RISK_SORT_ORDER = {"stockout_risk": 0, "overstock": 1, "healthy": 2}
@@ -261,7 +261,7 @@ if st.session_state.recommendations is None:
 
 # ---------------------------------------------------------------- header
 
-st.title("SellerSense")
+st.title("Agentic Inventory Management System")
 st.caption("An inventory copilot for small retailers. It works out what is about to run out, "
            "ranks what deserves attention today, explains why, and drafts the reorder.")
 
@@ -529,7 +529,7 @@ if section == "Evidence":
 
         label = {"seller": "What the seller actually did",
                  "plain_rop": "Textbook reorder point",
-                 "context_aware": "SellerSense"}
+                 "context_aware": "Agentic Inventory Management System"}
         c1, c2, c3 = st.columns(3)
         for col, policy in zip((c1, c2, c3), summary.index):
             base = summary.loc["seller"]
@@ -551,7 +551,7 @@ if section == "Evidence":
         st.markdown("\n".join(md))
         st.caption("")
 
-        st.markdown("**SellerSense beats what the seller actually did on all three at once** — "
+        st.markdown("**Agentic Inventory Management System beats what the seller actually did on all three at once** — "
                     "fewer stockouts, higher fill rate, and less cash tied up. Against the textbook "
                     "reorder point it trades capital for availability, which is the intended trade.")
 

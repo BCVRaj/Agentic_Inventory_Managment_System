@@ -1,4 +1,4 @@
-# SellerSense — Engineering Report
+﻿# Agentic Inventory Management System — Engineering Report
 
 Everything needed to pick this project up cold: what it does, why each piece is
 built the way it is, what has already been tried and rejected, and where the real
@@ -40,7 +40,7 @@ service-level choice. Almost no small retailer tracks any of those, and none of
 them check daily.
 
 **The thesis: the binding constraint was never the mathematics, it was that
-nobody could operate it.** SellerSense gathers the inputs, watches the thresholds,
+nobody could operate it.** Agentic Inventory Management System gathers the inputs, watches the thresholds,
 decides what is worth interrupting someone about, explains it in their terms,
 drafts the order, and adjusts when they disagree.
 
@@ -455,16 +455,16 @@ alternative seed sets the plain reorder point moved by at most 24 stockout days 
 | Seller's own rule, closed-loop | **150** | **0.828** | 0.806 | ₹63,672 |
 | Recorded orders, replayed | 178 | 0.807 | 0.774 | ₹55,037 |
 | Textbook reorder point | 302 | 0.643 | 0.671 | **₹20,235** |
-| SellerSense | 171 | 0.802 | 0.805 | ₹30,837 |
+| Agentic Inventory Management System | 171 | 0.802 | 0.805 | ₹30,837 |
 
-**SellerSense does not beat the seller on availability.** It reaches 97% of the
+**Agentic Inventory Management System does not beat the seller on availability.** It reaches 97% of the
 seller's fill rate on 48% of the working capital. Against the textbook reorder
 point it is a straight win — 43% fewer stockout days and 16 more points of fill
 rate — for about 1.5× the capital.
 
 State the shape of that plainly rather than defending it after the question comes.
 A shop owner's binding constraint is usually cash, not shelf space. The seller's
-rule buys its availability by holding ₹63,672 of stock; SellerSense gets within
+rule buys its availability by holding ₹63,672 of stock; Agentic Inventory Management System gets within
 2.6 points of it on ₹30,837. Freeing ₹33,000 of working capital is the product,
 and it is a trade the owner currently has no way to evaluate.
 
@@ -480,7 +480,7 @@ An earlier version of this table read:
 |---|---|---|---|
 | What the seller actually did | 220 | 0.668 | ₹52,010 |
 | Textbook reorder point | 338 | 0.567 | ₹18,640 |
-| SellerSense | 188 | 0.753 | ₹30,121 |
+| Agentic Inventory Management System | 188 | 0.753 | ₹30,121 |
 
 and claimed a win on all three measures at once. That claim was an artefact of
 three separate problems, all now fixed:
@@ -489,16 +489,16 @@ three separate problems, all now fixed:
    stockout; the seller's actual rule can, and does.
 2. **Fill rate was averaged across SKUs, not weighted by demand.** On the old
    numbers the weighted figures were 0.750 for the seller against 0.771 for
-   SellerSense — a 2.1-point gap being reported as 8.5. Nearly every large win sat
-   on items with under 40 units of demand, while SellerSense was *behind* the
+   Agentic Inventory Management System — a 2.1-point gap being reported as 8.5. Nearly every large win sat
+   on items with under 40 units of demand, while Agentic Inventory Management System was *behind* the
    seller on Rice, Atta, Tea, Sugar and Namkeen, which are most of the store's
    volume.
 3. **The demand estimator was biased low** (section 4), which depressed every
    policy that computed its own reorder point and depressed them unevenly.
 
 The Umbrella showcase is also gone. It used to read 0.000 for the textbook policy
-against 0.446 for SellerSense; with an unbiased demand estimate the textbook policy
-now catches the monsoon ramp and posts 0.658 against SellerSense's 0.468 — it wins
+against 0.446 for Agentic Inventory Management System; with an unbiased demand estimate the textbook policy
+now catches the monsoon ramp and posts 0.658 against Agentic Inventory Management System's 0.468 — it wins
 there. Raincoat replaces it as the flagship case. Losing a demo example to a
 correctness fix is the correct trade, and the fact that the old example depended on
 a bug is itself the argument for auditing your own evidence.

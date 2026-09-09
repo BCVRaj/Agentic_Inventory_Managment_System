@@ -1,4 +1,4 @@
-"""
+﻿"""
 The Reasoning Agent and Orchestrator. The only place an LLM makes a judgement:
 engine.py, context_agent.py and forecast.py are tools the graph calls, never
 decision-makers.
@@ -57,7 +57,7 @@ from logger import get_logger
 logger = get_logger(__name__, extra_data={"module": "graph"})
 
 
-class SellerSenseState(TypedDict):
+class AgenticInventoryState(TypedDict):
     as_of_date: str
     consumption_signals: dict
     context_signals: dict
@@ -114,7 +114,7 @@ def make_gather_signals_node(sales, items, suppliers, festival_calendar, festiva
     params_by_item = params_by_item or {}
 
     @traceable(name="gather_signals", run_type="chain")
-    def gather_signals(state: SellerSenseState) -> dict:
+    def gather_signals(state: AgenticInventoryState) -> dict:
         as_of = pd.Timestamp(state["as_of_date"])
         flagged = {}
         for item_id in items["item_id"]:
@@ -290,7 +290,7 @@ def make_reasoning_node(llm, festival_calendar: pd.DataFrame, max_attempts: int 
     all_festival_names = set(festival_calendar["festival_name"])
 
     @traceable(name="reasoning", run_type="llm")
-    def reasoning(state: SellerSenseState) -> dict:
+    def reasoning(state: AgenticInventoryState) -> dict:
         consumption, context = state["consumption_signals"], state["context_signals"]
         if not consumption:
             return {"ranked_recommendations": []}
@@ -356,7 +356,7 @@ def make_reasoning_node(llm, festival_calendar: pd.DataFrame, max_attempts: int 
 # ---------------------------------------------------------------- human approval
 
 @traceable(name="human_approval", run_type="chain")
-def human_approval(state: SellerSenseState) -> dict:
+def human_approval(state: AgenticInventoryState) -> dict:
     decision = interrupt({
         "recommendations": state["ranked_recommendations"],
         "prompt": "Approve, reject (with a reason), or snooze each recommendation.",
@@ -384,7 +384,7 @@ def build_graph(
         "max_items": max_items,
     }})
     
-    graph = StateGraph(SellerSenseState)
+    graph = StateGraph(AgenticInventoryState)
     graph.add_node("gather_signals", make_gather_signals_node(
         sales, items, suppliers, festival_calendar, festival_overrides, promotions, max_items,
         params_by_item, purchase_orders))

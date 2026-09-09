@@ -1,5 +1,5 @@
-"""
-SellerSense POC dataset generator — one store, 25 SKUs, 365 daily days.
+﻿"""
+Agentic Inventory Management System POC dataset generator — one store, 25 SKUs, 365 daily days.
 
 Purpose-built so each output file maps directly onto one agent:
   items.csv, suppliers.csv        -> Reasoning/Orchestrator agent (cost, price, lead time)

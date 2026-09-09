@@ -1,5 +1,5 @@
-"""
-Structured logging for SellerSense. Provides JSON-formatted logs
+﻿"""
+Structured logging for Agentic Inventory Management System. Provides JSON-formatted logs
 with context metadata for LangSmith integration and debugging.
 
 Usage:

@@ -1,5 +1,5 @@
-"""
-Multi-agent supervisor pattern for SellerSense.
+﻿"""
+Multi-agent supervisor pattern for Agentic Inventory Management System.
 
 Implements a tool-calling loop where the LLM acts as a supervisor that can
 decide to:

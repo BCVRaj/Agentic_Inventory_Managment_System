@@ -1,4 +1,4 @@
-# SellerSense — Autonomous Inventory Reordering Platform
+﻿# Agentic Inventory Management System — Autonomous Inventory Reordering Platform
 
 ### [Live Demo](https://autonomous-inventory-management-reordering-platform-mx4aqvegc3.streamlit.app/)
 
@@ -19,14 +19,14 @@ The math (reorder point formula) has existed since 1913. **Nobody uses it becaus
 
 ---
 
-## What SellerSense Does
+## What Agentic Inventory Management System Does
 
 **An AI assistant that watches your shop and tells you what to order, how much, and why.**
 
 ```
 You: "What do I need to order today?"
 
-SellerSense: 
+Agentic Inventory Management System: 
   1. Rice 5kg — Order 23 units (running low, 2.5 days left)
   2. Biscuits Pack — Order 80 units (Diwali in 10 days, demand spikes)
   3. Umbrella — 24 units arriving tomorrow (already on order)
@@ -312,10 +312,10 @@ This boundary ensures:
 | Policy | Stockout Days | Fill Rate | Capital Tied Up |
 |---|---|---|---|
 | Seller's own rule | 150 | 82.8% | ₹63,672 |
-| **SellerSense** | **171** | **80.2%** | **₹30,837** |
+| **Agentic Inventory Management System** | **171** | **80.2%** | **₹30,837** |
 | Plain reorder point | 302 | 64.3% | ₹20,235 |
 
-**SellerSense reaches 97% of the seller's fill rate at 48% of the working capital.**
+**Agentic Inventory Management System reaches 97% of the seller's fill rate at 48% of the working capital.**
 
 The shop owner frees ₹33,000 in cash for just 2.5% fill rate — a trade most would take.
 
@@ -362,13 +362,13 @@ python src/run_backtest.py
 
 ```bash
 # LLM Provider
-export SELLERSENSE_LLM_PROVIDER=groq
+export AGENTIC_LLM_PROVIDER=groq
 export GROQ_API_KEY=your_key_here
 
 # LangSmith Observability
 export LANGCHAIN_TRACING_V2=true
 export LANGCHAIN_API_KEY=your_langsmith_key
-export LANGCHAIN_PROJECT=sellersense
+export LANGCHAIN_PROJECT=Agentic Inventory Management System
 
 # Twilio Notifications (optional)
 export TWILIO_ACCOUNT_SID=your_sid

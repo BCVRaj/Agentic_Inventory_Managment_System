@@ -1,4 +1,4 @@
-"""
+﻿"""
 Chooses which chat model backs the system, so the same code runs against a
 local Ollama during development and a hosted API once deployed.
 
@@ -7,7 +7,7 @@ only ever calls `.with_structured_output(schema).invoke(prompt)`. Every
 provider below implements that identically, so switching is a config change,
 not a code change.
 
-Selection order: explicit argument, then SELLERSENSE_LLM_PROVIDER, then
+Selection order: explicit argument, then AGENTIC_LLM_PROVIDER, then
 whichever provider is actually usable on this machine (package installed and
 key present), preferring a hosted API since local Ollama is unreachable from
 a deployed container.
@@ -44,7 +44,7 @@ def _get_secret(key: str) -> str | None:
     except Exception:
         return None
 
-# model choices are per-provider defaults, overridable via SELLERSENSE_LLM_MODEL
+# model choices are per-provider defaults, overridable via AGENTIC_LLM_MODEL
 PROVIDERS = {
     "groq":     dict(env_key="GROQ_API_KEY",   package="langchain_groq",         default_model="llama-3.3-70b-versatile"),
     "google":   dict(env_key="GOOGLE_API_KEY", package="langchain_google_genai", default_model="gemini-2.0-flash"),
@@ -97,10 +97,10 @@ def resolve_provider(explicit: str | None = None) -> str:
             raise ValueError(f"unknown provider {explicit!r} -- choose from {sorted(PROVIDERS)}")
         return explicit
 
-    from_env = os.environ.get("SELLERSENSE_LLM_PROVIDER")
+    from_env = os.environ.get("AGENTIC_LLM_PROVIDER")
     if from_env:
         if from_env not in PROVIDERS:
-            raise ValueError(f"SELLERSENSE_LLM_PROVIDER={from_env!r} is not one of {sorted(PROVIDERS)}")
+            raise ValueError(f"AGENTIC_LLM_PROVIDER={from_env!r} is not one of {sorted(PROVIDERS)}")
         return from_env
 
     usable = available_providers()
@@ -118,7 +118,7 @@ def make_llm(provider: str | None = None, model: str | None = None, temperature:
     """Returns a LangChain chat model. Same interface whichever provider backs it."""
     name = resolve_provider(provider)
     spec = PROVIDERS[name]
-    model = model or os.environ.get("SELLERSENSE_LLM_MODEL") or spec["default_model"]
+    model = model or os.environ.get("AGENTIC_LLM_MODEL") or spec["default_model"]
 
     status = provider_status(name)
     if not status.package_installed:

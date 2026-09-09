@@ -1,5 +1,5 @@
-"""
-FAISS-backed vector store for SellerSense.
+﻿"""
+FAISS-backed vector store for Agentic Inventory Management System.
 
 Indexes item metadata, historical feedback, and sales summaries so the
 chatbot can retrieve relevant context for natural language queries.

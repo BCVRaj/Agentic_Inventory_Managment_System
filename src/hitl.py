@@ -1,5 +1,5 @@
-"""
-Enhanced Human-in-the-Loop (HITL) patterns for SellerSense.
+﻿"""
+Enhanced Human-in-the-Loop (HITL) patterns for Agentic Inventory Management System.
 
 Implements:
 1. Per-item interrupts for independent approve/reject decisions
@@ -293,7 +293,7 @@ class WhatsAppNotifier:
             payload = {
                 "from": {
                     "address": self.from_email,
-                    "name": "SellerSense"
+                    "name": "Agentic Inventory Management System"
                 },
                 "to": [
                     {"address": to_email}
@@ -383,7 +383,7 @@ class WhatsAppNotifier:
             "</style></head>",
             "<body>",
             "<div class='container'>",
-            "<div class='header'><h1>SellerSense Daily Summary</h1></div>",
+            "<div class='header'><h1>Agentic Inventory Management System Daily Summary</h1></div>",
         ]
 
         # Auto-approved section
@@ -421,7 +421,7 @@ class WhatsAppNotifier:
         html_parts.extend([
             "<div class='footer'>",
             "<p>Open your dashboard to review and approve recommendations.</p>",
-            "<p>Best regards,<br><strong>SellerSense Team</strong></p>",
+            "<p>Best regards,<br><strong>Agentic Inventory Management System Team</strong></p>",
             "</div>",
             "</div>",
             "</body>",
@@ -429,7 +429,7 @@ class WhatsAppNotifier:
         ])
 
         html_content = "\n".join(html_parts)
-        subject = f"SellerSense Daily Summary - {len(needs_review)} items need review"
+        subject = f"Agentic Inventory Management System Daily Summary - {len(needs_review)} items need review"
 
         return self.send_email(to_email, subject, html_content)
 
@@ -465,7 +465,7 @@ class WhatsAppNotifier:
         </style></head>
         <body>
             <div class="alert {'high' if urgency == 'high' else ''}">
-                <h2> SellerSense Alert</h2>
+                <h2> Agentic Inventory Management System Alert</h2>
                 <p><strong>{item_name}</strong> needs your attention!</p>
                 <div class="details">
                     <p><strong>Risk:</strong> {risk}</p>
@@ -473,13 +473,13 @@ class WhatsAppNotifier:
                     <p><strong>Suggested Order:</strong> {qty} units</p>
                 </div>
                 <p>Open your dashboard to review this recommendation.</p>
-                <p><em>Best regards,<br>SellerSense Team</em></p>
+                <p><em>Best regards,<br>Agentic Inventory Management System Team</em></p>
             </div>
         </body>
         </html>
         """
 
-        subject = f"SellerSense Alert: {item_name} - {urgency.upper()} urgency"
+        subject = f"Agentic Inventory Management System Alert: {item_name} - {urgency.upper()} urgency"
 
         return self.send_email(to_email, subject, html_content)
 
