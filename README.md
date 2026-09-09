@@ -1,6 +1,6 @@
 ﻿# Agentic Inventory Management System — Autonomous Inventory Reordering Platform
 
-### [Live Demo](https://autonomous-inventory-management-reordering-platform-mx4aqvegc3.streamlit.app/)
+### [Live Demo](https://agenticinventorymanagmentsystem-d3t5mvfajwgn5jlttss9dz.streamlit.app/))
 
 ---
 
